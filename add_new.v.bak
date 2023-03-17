@@ -1,0 +1,25 @@
+module add_new (input [31:0] x, y, input c_in, output c_out, output [31:0] s);
+
+//ripple carry adder implementation using full adders
+//module fulladder_new (input x, y, c_in, output reg c_out, s);
+
+//generate and ripple full adders
+genvar i;
+wire [32:0] carry, sum;
+
+generate for (i = 0; i < 32; i = i+1) begin : ripple_carry
+	
+		fulladder_new inst (
+			.x(x[i]),
+			.y(y[i]),
+			.c_in(carry[i]),
+			.c_out(carry[i+1]),
+			.s(s[i])
+			);
+	end		
+endgenerate
+
+//assign s = sum;
+assign c_out = carry[32];
+
+endmodule

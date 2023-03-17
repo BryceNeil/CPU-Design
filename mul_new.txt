@@ -1,0 +1,79 @@
+module mul_new (input [31:0] multiplicand, multiplier, output [31:0] z_hi, z_lo);
+
+//reg [2:0] check;
+reg signed [63:0] multiplier_ext, multiplicand_ext;
+reg [63:0] partial;
+reg signed [63:0] shifted_bits;
+//reg [63:0] temp;
+
+//puts multiplier in bottom 32 bits of 64bit reg w/ sign extension
+always @ (*) begin
+multiplier_ext = {{32{multiplier[31]}}, multiplier};
+multiplicand_ext = {{32{multiplicand[31]}}, multiplicand};
+
+end
+
+integer i;
+
+//decoding each two bits 
+always @ (*) begin
+for (i = 0; i < 30; i = i+2) begin
+
+reg [2:0] check;
+reg [63:0] neg_mul;
+
+	if (i == 0) begin
+		check[0] = 0;
+		check[1] = multiplier[i];
+		check[2] = multiplier_ext[i +	1];
+	end 
+	else begin
+		check[0] = multiplier[i - 1];
+		check[1] = multiplier[i];
+		check[2] = multiplier[i + 1];
+	end
+	
+
+	case (check)
+		001, 010: begin
+			//m * 1 - sign extended multiplicand
+			shifted_bits = multiplicand_ext<<i; 
+			partial = partial + shifted_bits;
+		end
+		
+		3'b011: begin
+			//m * 2 
+			shifted_bits = multiplicand_ext<<(i+1);
+			partial = partial + shifted_bits;
+		end
+		
+		3'b100: begin
+			//m * -2 
+			neg_mul = -multiplicand_ext;
+			shifted_bits = neg_mul<<(i+1);
+			partial = partial + shifted_bits;
+		end
+		
+		3'b101, 3'b110: begin
+			//m * -1
+			neg_mul = -multiplicand_ext;
+			shifted_bits = neg_mul<<i; 
+			partial = partial + shifted_bits;
+		end
+		
+endcase
+
+
+end 
+
+end 
+
+//increment n by by 1 uo to half the number of bits in multiplicand/multiplier
+
+//total is the final product
+
+assign z_lo = partial[31:0];
+assign z_hi = partial[63:32];
+
+endmodule
+

@@ -1,0 +1,28 @@
+`timescale 1ns / 1ps
+
+module sub_new_tb;
+
+//inputs and outputs
+wire [31:0] x, y; 
+
+reg [31:0] z;
+
+//instantiate module for testing
+
+sub_new sub_test(.x(x), .y(y), .z(z));
+
+
+//initial begin block where we do da testin
+
+initial begin
+
+
+#10
+
+
+
+
+
+end 
+
+endmodule

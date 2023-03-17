@@ -1,0 +1,13 @@
+`timescale 1ns/1ps
+
+module div_new_tb;
+
+//input output
+
+//module div_new (input [31:0] q, m, output [31:0] z_hi, z_lo);
+
+reg [31:0] a, b;
+
+wire [31:0] z_hi, z_lo;
+
+

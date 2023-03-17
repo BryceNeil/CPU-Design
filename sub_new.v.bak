@@ -1,0 +1,15 @@
+module sub_new (input [31:0] x, y, output [31:0] z);
+
+reg [31:0] y_neg, temp;
+
+neg_new neg_y(.x(y), .y(y_neg));
+
+add subtract(.x(x), .y(y_neg), .z(temp));
+
+always @(*) begin 
+
+	assign z = temp;
+	
+end
+
+endmodule

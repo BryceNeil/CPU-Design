@@ -1,0 +1,50 @@
+module datapath_new ();
+
+
+//bus 
+busMux (.S(), .BusMuxIn_R0(), .BusMuxIn_R1(), .BusMuxIn_R2(), .BusMuxIn_R3(), .BusMuxIn_R4(), .BusMuxIn_R5(), .BusMuxIn_R6(), 
+			.BusMuxIn_R7(),.BusMuxIn_R8(), .BusMuxIn_R9(), .BusMuxIn_R10(), .BusMuxIn_R11(), .BusMuxIn_R12(), .BusMuxIn_R13(), .BusMuxIn_R14(), .BusMuxIn_R15(),
+			.BusMuxIn_HI(), .BusMuxIn_LO(), .BusMuxIn_Zhi(), .BusMuxIn_Zlo(), .BusMuxIn_PC(), .BusMuxIn_MDR(), .BusMuxIn_In_Port(), .C_sign_extended(), .BusMuxIn_Y(), .BusMuxOut());
+
+
+
+//registers 0-15
+register r0(.BusMuxOut(), .clr(clr), .clk(clk), .Rin(R0_input), .BusMuxIn_R());
+register r1(.BusMuxOut(), .clr(clr), .clk(clk), .Rin(R0_input), .BusMuxIn_R());
+register r2(.BusMuxOut(), .clr(clr), .clk(clk), .Rin(R0_input), .BusMuxIn_R());
+register r3(.BusMuxOut(), .clr(clr), .clk(clk), .Rin(R0_input), .BusMuxIn_R());
+register r4(.BusMuxOut(), .clr(clr), .clk(clk), .Rin(R0_input), .BusMuxIn_R());
+register r5(.BusMuxOut(), .clr(clr), .clk(clk), .Rin(R0_input), .BusMuxIn_R());
+register r6(.BusMuxOut(), .clr(clr), .clk(clk), .Rin(R0_input), .BusMuxIn_R());
+register r7(.BusMuxOut(), .clr(clr), .clk(clk), .Rin(R0_input), .BusMuxIn_R());
+register r8(.BusMuxOut(), .clr(clr), .clk(clk), .Rin(R0_input), .BusMuxIn_R());
+register r9(.BusMuxOut(), .clr(clr), .clk(clk), .Rin(R0_input), .BusMuxIn_R());
+register r10(.BusMuxOut(), .clr(clr), .clk(clk), .Rin(R0_input), .BusMuxIn_R());
+register r11(.BusMuxOut(), .clr(clr), .clk(clk), .Rin(R0_input), .BusMuxIn_R());
+register r12(.BusMuxOut(), .clr(clr), .clk(clk), .Rin(R0_input), .BusMuxIn_R());
+register r13(.BusMuxOut(), .clr(clr), .clk(clk), .Rin(R0_input), .BusMuxIn_R());
+register r14(.BusMuxOut(), .clr(clr), .clk(clk), .Rin(R0_input), .BusMuxIn_R());
+register r15(.BusMuxOut(), .clr(clr), .clk(clk), .Rin(R0_input), .BusMuxIn_R());
+
+
+
+
+//hi and lo regs (z transfers to here)
+
+
+//alu (with 2 inputs and one output) 
+	//z reg -- on input load hi lo
+
+	//y reg
+	
+
+//ir and pc (incremented by 1 using ALU)
+
+
+//mar (holds address of memory locations) 
+
+
+//MDR holds daya read from/to be written to memory
+
+
+//

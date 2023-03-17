@@ -1,0 +1,8 @@
+module mul_new (input [31:0] x, y, output [31:0] z_lo, z_hi);
+
+
+
+
+
+
+endmodule

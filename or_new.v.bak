@@ -1,0 +1,13 @@
+module or_new (input x, y, output z);
+
+reg temp;
+
+always @ (*) 
+	begin
+		if (x == 0 && y == 0)
+			temp = 0;
+		else 
+			temp = 1;
+	end 
+assign z = temp;
+	endmodule

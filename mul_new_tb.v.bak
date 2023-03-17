@@ -1,0 +1,21 @@
+`timescale 1ns / 1ps
+
+module mul_new_tb;
+
+//i/o
+
+
+
+//instantiate module for testing
+
+
+
+
+//ib blockus
+initial begin
+
+
+end 
+
+
+endmodule

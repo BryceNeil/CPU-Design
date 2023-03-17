@@ -1,0 +1,23 @@
+module add_new_tb;
+
+//inputs and outputs
+
+
+
+
+//instance
+add_new add_test()
+
+//initbeg
+
+
+initial begin
+
+
+
+
+
+end
+
+endmodule
+

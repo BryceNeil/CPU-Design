@@ -1,0 +1,16 @@
+module and_new (input x, y, output z);
+
+reg temp;
+
+always @ (*) 
+begin
+	if (x == 1 && y == 1) 
+		temp = 1;
+		
+	else 
+		temp = 0;
+			
+end
+
+assign z = temp;
+ endmodule

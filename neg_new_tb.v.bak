@@ -1,0 +1,24 @@
+`timescale 1ns / 1ps
+
+module neg_new_tb;
+
+
+//inputs and outputs
+reg [31:0] x;
+
+wire [31:0] z;
+
+//instantiate testing module
+
+
+
+//initial begin blocco
+
+initial begin 
+x = {29'b0, 3'b111};
+
+#10
+
+end 
+
+endmodule

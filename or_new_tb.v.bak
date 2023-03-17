@@ -1,0 +1,41 @@
+`timescale 1ns / 1ps
+
+module or_new_tb;
+
+`timescale 1ns / 1ps
+module and_new_tb; 
+
+
+//inputs and outputs
+reg a, b;
+wire c; 
+
+//instances
+or_new or_test(.x(a), .y(b), .z(c));
+
+
+initial begin
+//assign inputs
+		a = 1'b0;
+		b = 1'b0;
+		//wait ten ns for stable output
+		#10
+	
+		a = 1'b0;
+		#10
+	
+		
+		//check output
+		
+		if (c !== a & b) begin
+		$display ("Test Failed: Expected %b, but got %b", a&b, c); 
+		$finish;
+		end
+		else begin
+		$display("Test passed with answer: %b", c);
+		$finish;
+		end 
+	end
+endmodule
+
+//check 
