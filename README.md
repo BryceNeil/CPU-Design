@@ -1,3 +1,3 @@
-# ELEC374-CPU-Design-Project
+# CPU-Design
 Designed a CPU using Verilog 
 
